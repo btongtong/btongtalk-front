@@ -35,8 +35,8 @@
     /*  Font  */
     --font-detail: 14px;
     --font-body: 16px;
-    --font-title: 18px;
-    --font-heading: 40px;
+    --font-title: 20px;
+    --font-heading: 26px;
 }
 
 * {

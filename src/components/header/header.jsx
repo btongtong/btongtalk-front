@@ -10,7 +10,7 @@ const Header = (props) => {
             <form className='search-box'>
                 <input className='search-input' placeholder='문제 검색'/>
                 <button className='search-button'>
-                    <IoIosSearch size={25} color={'#555555'}/>
+                    <IoIosSearch size={25} fill={'#717171'}/>
                 </button>
             </form>
             <div className='profile-img-box'>
