@@ -68,3 +68,19 @@ input::placeholder {
 input:focus {
     border: 1px solid var(--primary-color);
 }
+
+.heading {
+    font-weight: bold;
+    font-size: var(--font-heading);
+    color: var(--gray-90);
+}
+
+.title {
+    font-weight: bold;
+    font-size: var(--font-title);
+    color: var(--gray-90);
+}
+
+.description {
+    color: var(--gray-60);
+}

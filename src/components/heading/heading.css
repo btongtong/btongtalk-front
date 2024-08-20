@@ -1,0 +1,11 @@
+.heading-box {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.heading {
+    font-weight: bold;
+    font-size: var(--font-heading);
+    color: var(--gray-90);
+}
