@@ -13,9 +13,7 @@ const Header = (props) => {
                     <IoIosSearch size={25} fill={'var(--gray-60)'}/>
                 </button>
             </form>
-            <div className='profile-img-box'>
-                <ProfileImg></ProfileImg>
-            </div>
+            <ProfileImg width={'40px'} height={'40px'}/>
         </header>
     )
 }
