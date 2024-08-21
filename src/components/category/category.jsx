@@ -1,17 +1,9 @@
 import './category.css';
 import { FaPlay } from "react-icons/fa";
-import {useState} from "react";
+import useFillColor from "../../hooks/useFillColor";
 const Category = (props) => {
 
-    const [fillColor, setFillColor] = useState('var(--gray-60)');
-
-    const handleMouseOver = () => {
-        setFillColor('var(--primary-color)');
-    }
-
-    const handleMouseLeave = () => {
-        setFillColor('var(--gray-60)');
-    }
+    const { fillColor, handleMouseOver, handleMouseLeave } = useFillColor();
 
     return (
         <div
