@@ -5,6 +5,7 @@ import App from './App';
 import Profile from "./components/profile/profile";
 import Navbar from "./components/navbar/navbar";
 import Table from './components/table/table';
+import Statistics from "./components/statistics/statistics";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +13,7 @@ root.render(
         <App/>
         <Profile/>
         <Navbar/>
+        <Statistics/>
         <Table/>
     </React.StrictMode>
 );
