@@ -6,7 +6,9 @@ const Header = (props) => {
 
     return (
         <header className='header'>
-            <div className='logo-box'></div>
+            <div className='logo-box'>
+                <div className='logo'></div>
+            </div>
             <form className='search-box'>
                 <input className='search-input' placeholder='문제 검색'/>
                 <button className='search-button'>

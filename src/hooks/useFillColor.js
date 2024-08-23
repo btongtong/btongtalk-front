@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-const useFillColor = () => {
-    const [fillColor, setFillColor] = useState('var(--gray-60)');
+const useFillColor = (base, primary) => {
+    const [fillColor, setFillColor] = useState(base);
 
     const handleMouseOver = () => {
-        setFillColor('var(--primary-color)');
+        setFillColor(primary);
     }
 
     const handleMouseLeave = () => {
-        setFillColor('var(--gray-60)');
+        setFillColor(base);
     }
 
     return {

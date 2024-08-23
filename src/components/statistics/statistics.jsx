@@ -2,6 +2,7 @@ import './statistics.css';
 import { Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Chart, LineElement, LineController, ArcElement, Tooltip, Legend, Colors } from 'chart.js';
+import Table from "../table/table";
 Chart.register(LineElement, LineController, ChartDataLabels, ArcElement, Tooltip, Legend, Colors);
 
 const Statistics = (props) => {
@@ -14,7 +15,7 @@ const Statistics = (props) => {
         {categoryId: 3, category: '알고리즘', count: 95},
         {categoryId: 3, category: '알고리즘', count: 85},
         {categoryId: 3, category: '디자인패턴', count: 55},
-        {categoryId: 3, category: '디자인패턴', count: 10},
+        {categoryId: 3, category: '디자인패턴', count: 30},
         {categoryId: 3, category: '디자인패턴', count: 10},
         {categoryId: 3, category: '디자인패턴', count: 10}
     ];
@@ -27,7 +28,6 @@ const Statistics = (props) => {
         labels: labels,
         datasets: [{
             data: counts,
-            borderWidth: 1,
             cutout: '35%'
         }]
     };
@@ -58,7 +58,18 @@ const Statistics = (props) => {
 
     return (
         <div className='statistics-box'>
-            <Doughnut data={chartData} options={options} />
+            <div className='statistics-title'>
+                <p className='description'>카테고리 분포</p>
+                <h2 className='title'>{total} 문제 해결</h2>
+            </div>
+            <div className='chart-box'>
+                <div className='chart'>
+                <Doughnut data={chartData} options={options}/>
+                </div>
+                <div className='chart-table'>
+                    <Table/>
+                </div>
+            </div>
         </div>
     );
 }

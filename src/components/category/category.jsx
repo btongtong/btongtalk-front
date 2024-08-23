@@ -3,7 +3,7 @@ import { FaPlay } from "react-icons/fa";
 import useFillColor from "../../hooks/useFillColor";
 const Category = (props) => {
 
-    const { fillColor, handleMouseOver, handleMouseLeave } = useFillColor();
+    const { fillColor, handleMouseOver, handleMouseLeave } = useFillColor('var(--gray-60)', 'var(--primary-color)');
 
     return (
         <div

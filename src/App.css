@@ -84,3 +84,10 @@ input:focus {
 .description {
     color: var(--gray-60);
 }
+
+.logo {
+    background-image: url("./assets/logo.png");
+    background-size: cover;
+}
+
+

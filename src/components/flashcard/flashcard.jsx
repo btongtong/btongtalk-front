@@ -5,7 +5,7 @@ import useFillColor from "../../hooks/useFillColor";
 
 const Flashcard = (props) => {
     const [isFlipped, setIsFlipped] = useState(false);
-    const { fillColor, handleMouseOver, handleMouseLeave } = useFillColor();
+    const { fillColor, handleMouseOver, handleMouseLeave } = useFillColor('var(--gray-60)', 'var(--primary-color)');
 
     const handleFlip = () => {
         setIsFlipped(!isFlipped);

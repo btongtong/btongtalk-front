@@ -1,6 +1,8 @@
 import './navbar.css'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 import Profile from "../profile/profile";
+import Statistics from "../statistics/statistics";
+import Table from "../table/table";
 
 const Navbar = (props) => {
     return (
@@ -8,16 +10,16 @@ const Navbar = (props) => {
             <div className='navbar-box'>
                 <nav>
                     <ul>
-                        <li><Link to='/statistics'>분포</Link></li>
-                        <li><Link to='/correct'>맞은문제</Link></li>
-                        <li><Link to='/wrong'>틀린문제</Link></li>
+                        <NavLink to='/statistics' activeClassName='active'><li>분포</li></NavLink>
+                        <NavLink to='/correct' activeClassName='active'><li>맞은문제</li></NavLink>
+                        <NavLink to='/wrong' activeClassName='active'><li>틀린문제</li></NavLink>
                     </ul>
                 </nav>
                 <div className='component'>
                     <Routes>
-                        <Route path='/statistics' element={<Profile/>}/>
-                        <Route path='/correct' element={<Profile/>}/>
-                        <Route path='/wrong' element={<Profile/>}/>
+                        <Route path='/statistics' element={<Statistics/>}/>
+                        <Route path='/correct' element={<Table/>}/>
+                        <Route path='/wrong' element={<Table/>}/>
                     </Routes>
                 </div>
             </div>

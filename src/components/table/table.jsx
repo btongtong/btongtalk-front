@@ -1,9 +1,11 @@
 import './table.css';
 import {useState} from "react";
+import Pagination from "../pagination/pagination";
 
 const Table = (props) => {
-    // const {headers, data} = props;
+    // const {headers, data, showPagination} = props;
 
+    const showPagination = true
     const headers = ['id', 'category', 'question', 'datetime'];
     const data = [
         {id: 1, category: 'DB', question: '인덱싱에 대하여 설명하세요.', datetime: '2024-08-20'},
@@ -15,24 +17,33 @@ const Table = (props) => {
     ]
 
     return (
-        <table className='table-box'>
-            <thead>
-                <tr>
-                    {headers.map((header, index) => (
-                        <th key={index}>{header}</th>
-                    ))}
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((row, rowIndex) => (
-                    <tr key={rowIndex}>
-                        {headers.map((header, colIndex) => (
-                            <td key={colIndex}>{row[header]}</td>
+        <div className='table-box'>
+            <table>
+                <thead>
+                    <tr>
+                        {headers.map((header, index) => (
+                            <th key={index}>{header}</th>
                         ))}
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {data.map((row, rowIndex) => (
+                        <tr key={rowIndex}>
+                            {headers.map((header, colIndex) => (
+                                <td key={colIndex}>{row[header]}</td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            {/*{showPagination && (*/}
+            {/*    <Pagination*/}
+            {/*        currentPage={currentPage}*/}
+            {/*        totalPages={totalPages}*/}
+            {/*        onPageChange={handlePageChange}*/}
+            {/*    />*/}
+            {/*)}*/}
+        </div>
     )
 }
 
