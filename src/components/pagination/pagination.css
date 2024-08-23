@@ -1,0 +1,37 @@
+.pagination-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-4);
+}
+
+.pagination-box button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 32px;
+    height: 32px;
+    background-color: var(--gray-5);
+}
+
+.pagination-box button:not(.page-no button) {
+    border-radius: 50%;
+}
+
+.page-no {
+    display: flex;
+
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.pagination-box button:not(.active):hover {
+    background-color: var(--gray-10);
+}
+
+.pagination-box .active {
+    border-radius: .5rem;
+    background-color: var(--primary-color);
+    color: var(--gray-0);
+}

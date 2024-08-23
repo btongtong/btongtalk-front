@@ -5,7 +5,7 @@ import Pagination from "../pagination/pagination";
 const Table = (props) => {
     // const {headers, data, showPagination} = props;
 
-    const showPagination = true
+    const { showPagination } = props;
     const headers = ['id', 'category', 'question', 'datetime'];
     const data = [
         {id: 1, category: 'DB', question: '인덱싱에 대하여 설명하세요.', datetime: '2024-08-20'},
@@ -36,13 +36,9 @@ const Table = (props) => {
                     ))}
                 </tbody>
             </table>
-            {/*{showPagination && (*/}
-            {/*    <Pagination*/}
-            {/*        currentPage={currentPage}*/}
-            {/*        totalPages={totalPages}*/}
-            {/*        onPageChange={handlePageChange}*/}
-            {/*    />*/}
-            {/*)}*/}
+            {showPagination && (
+                <Pagination/>
+            )}
         </div>
     )
 }

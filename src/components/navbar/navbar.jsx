@@ -18,8 +18,8 @@ const Navbar = (props) => {
                 <div className='component'>
                     <Routes>
                         <Route path='/statistics' element={<Statistics/>}/>
-                        <Route path='/correct' element={<Table/>}/>
-                        <Route path='/wrong' element={<Table/>}/>
+                        <Route path='/correct' element={<Table showPagination={true}/>}/>
+                        <Route path='/wrong' element={<Table showPagination={true}/>}/>
                     </Routes>
                 </div>
             </div>
