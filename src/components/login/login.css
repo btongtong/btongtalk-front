@@ -1,6 +1,5 @@
 .login-box {
-    max-width: 436px;
-    padding: var(--spacing-7);
+    padding: var(--spacing-9) var(--spacing-7);
     border-radius: .5rem;
     background-color: var(--gray-5);
 }
@@ -60,6 +59,6 @@
     background-size: 28px;
 }
 
-.naver-button .logo-title {
+.naver-button span {
     color: var(--gray-0);
 }

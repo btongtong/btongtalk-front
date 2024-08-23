@@ -12,11 +12,11 @@ const Login = (props) => {
                 <p className='description'>SNS 계정으로 간편하게 시작하세요!</p>
                 <button className='naver-button'>
                     <div className='naver'/>
-                    <span className='logo-title'>네이버로 계속하기</span>
+                    <span>네이버로 계속하기</span>
                 </button>
                 <button className='kakao-button'>
                     <div className='kakao'/>
-                    <span className='logo-title'>카카오로 계속하기</span>
+                    <span>카카오로 계속하기</span>
                 </button>
             </div>
         </div>

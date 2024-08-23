@@ -15,7 +15,7 @@
     --success-border: #CEE9D4;
     --success-base: #008A1E;
     --success-text: #006E18;
-    --primary-color: #246BEB;
+    --primary-color: #0065ff;
     --secondary-color: #003675;
 
     /*  Size  */
@@ -31,6 +31,8 @@
 
     --layout-1: 80px;
     --layout-2: 64px;
+
+    --max-width: 1280px;
 
     /*  Font  */
     --font-detail: 14px;
@@ -52,7 +54,6 @@
 
 body {
     min-width: 657px;
-    /*max-width: 1280px;*/
 }
 
 input, textarea, select, button {
@@ -67,6 +68,12 @@ input::placeholder {
 
 input:focus {
     border: 1px solid var(--primary-color);
+}
+
+.logo-heading {
+    font-weight: 900;
+    font-size: calc(var(--font-heading) * 0.9);
+    color: var(--gray-90);
 }
 
 .heading {

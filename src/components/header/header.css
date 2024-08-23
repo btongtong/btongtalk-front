@@ -1,5 +1,8 @@
-.header {
+.header-box {
+    width: 100%;
     height: var(--layout-2);
+    max-width: var(--max-width);
+    margin: 0 auto;
     padding: var(--spacing-3) var(--spacing-4);
 
     display: flex;
@@ -8,7 +11,25 @@
 }
 
 .logo-box {
-    width: 120px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1)
+}
+
+@keyframes rotate_image{
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.logo-box .logo{
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+
+    animation: rotate_image 5s linear infinite;
+    transform-origin: 50% 50%;
 }
 
 .search-box {

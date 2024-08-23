@@ -1,10 +1,11 @@
 import './heading.css';
 
 const Heading = (props) => {
+    const {title, subtitle} = props.data;
     return (
         <div className='heading-box'>
-            <h1 className='heading'>인터뷰 준비</h1>
-            <h2 className='description'>다양한 CS 질문에 대답하며 면접을 대비해보세요!</h2>
+            <h1 className='heading'>{title}</h1>
+            <h2 className='description'>{subtitle}</h2>
         </div>
     )
 }

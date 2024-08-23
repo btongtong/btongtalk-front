@@ -1,6 +1,5 @@
 import './navbar.css'
 import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
-import Profile from "../profile/profile";
 import Statistics from "../statistics/statistics";
 import Table from "../table/table";
 

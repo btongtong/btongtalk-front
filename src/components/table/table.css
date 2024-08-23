@@ -1,5 +1,6 @@
 .table-box table {
     width: 100%;
+    box-sizing: border-box;
     padding: var(--spacing-6);
     border-collapse: collapse;
     border-radius: .5rem .5rem 0 0;
