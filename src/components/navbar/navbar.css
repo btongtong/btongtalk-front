@@ -1,6 +1,7 @@
 .navbar-box nav {
     width: 100%;
-    padding: 0 var(--spacing-4);
+    padding: var(--spacing-4);
+    padding-bottom: 0;
     border-bottom: 1px solid var(--gray-40);
 }
 .navbar-box nav ul{

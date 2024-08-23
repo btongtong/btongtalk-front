@@ -1,3 +1,8 @@
+.table-box {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-7);
+}
 .table-box table {
     width: 100%;
     box-sizing: border-box;

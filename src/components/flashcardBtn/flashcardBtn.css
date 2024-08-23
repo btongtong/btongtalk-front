@@ -1,0 +1,45 @@
+.flashcard-btn-box {
+    padding: var(--spacing-4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-6);
+}
+
+.flashcard-btn-box button, .flashcard-btn-box div {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flashcard-btn-box button {
+    border-radius: 50%;
+    border: 1px solid var(--gray-40);
+}
+
+.unknown {
+    color: var(--danger-text);
+}
+
+.unknown:hover {
+    border: 1px solid var(--danger-text);
+}
+
+.known {
+    color: var(--success-text);
+}
+
+.known:hover {
+    border: 1px solid var(--success-text);
+}
+
+.cnt-div {
+    gap: var(--spacing-1);
+}
+
+.cnt-div span {
+    font-weight: bold;
+}

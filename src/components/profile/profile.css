@@ -1,3 +1,6 @@
+.profile-box {
+    padding: var(--spacing-4);
+}
 .email {
     margin-top: var(--spacing-4);
 }

@@ -97,4 +97,7 @@ input:focus {
     background-size: cover;
 }
 
-
+.container {
+    max-width: var(--max-width);
+    margin: var(--layout-2) auto;
+}

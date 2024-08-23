@@ -3,7 +3,7 @@ import './flashcard.css';
 import { AiOutlineSound } from "react-icons/ai";
 import useFillColor from "../../hooks/useFillColor";
 
-const Flashcard = (props) => {
+const FlashcardC = (props) => {
     const [isFlipped, setIsFlipped] = useState(false);
     const { fillColor, handleMouseOver, handleMouseLeave } = useFillColor('var(--gray-60)', 'var(--primary-color)');
 
@@ -39,4 +39,4 @@ const Flashcard = (props) => {
     )
 }
 
-export default Flashcard;
+export default FlashcardC;

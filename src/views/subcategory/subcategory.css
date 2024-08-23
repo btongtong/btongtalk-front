@@ -1,0 +1,14 @@
+.subcategory-list {
+    margin: var(--spacing-4);
+
+    border-radius: .5rem;
+    border: 1px solid var(--gray-40);
+}
+
+.subcategory-list .category-box {
+    height: auto;
+    flex-direction: row;
+
+    border: none;
+    border-radius: 0;
+}
