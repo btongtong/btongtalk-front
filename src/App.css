@@ -101,3 +101,11 @@ input:focus {
     max-width: var(--max-width);
     margin: var(--layout-2) auto;
 }
+
+.component {
+    padding: var(--spacing-7) var(--spacing-4);
+}
+
+.link {
+    text-decoration: none;
+}

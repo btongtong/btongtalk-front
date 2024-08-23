@@ -1,16 +1,16 @@
 import HeaderL from "../../layout/header/header";
 import Profile from "../../components/profile/profile";
 import NavbarL from "../../layout/navbar/navbar";
-import Statistics from "../../components/statistics/statistics";
+import Table from "../../components/table/table";
 
-const Member = (props) => {
+const Correct = (props) => {
     return (
         <HeaderL>
             <div className='container'>
                 <Profile/>
                 <NavbarL>
                     <div className='component'>
-                        <Statistics />
+                        <Table showPagination={true} />
                     </div>
                 </NavbarL>
             </div>
@@ -18,4 +18,4 @@ const Member = (props) => {
     )
 }
 
-export default Member;
+export default Correct;
