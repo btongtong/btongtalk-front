@@ -7,10 +7,14 @@ const api = axios.create({
 
 api.interceptors.request.use(
     async (config) => {
-        const {accessToken} = useAuthStore.getState();
-        if(accessToken) {
-            config.headers.Authorization = accessToken;
+        let { accessToken } = useAuthStore.getState();
+
+        if(!accessToken) {
+            const { reissueUrl, reissueAccessToken } = useAuthStore.getState();
+            accessToken = await reissueAccessToken(reissueUrl);
         }
+
+        config.headers.Authorization = accessToken;
         return config;
     },
     (error) => {
@@ -26,14 +30,11 @@ api.interceptors.response.use(
         const originalRequest = error.config;
 
         if(error.response.status === 401) {
-            const { reissueAccessToken } = useAuthStore.getState();
-            try {
-                const newAccessToken = await reissueAccessToken();
-                originalRequest.headers.Authorization = newAccessToken;
-                return api(originalRequest);
-            } catch (reissueError) {
-                return Promise.reject(reissueError);
-            }
+            const { reissueUrl, reissueAccessToken } = useAuthStore.getState();
+            const newAccessToken = await reissueAccessToken(reissueUrl);
+
+            originalRequest.headers.Authorization = newAccessToken;
+            return api(originalRequest);
         }
 
         return Promise.reject(error)

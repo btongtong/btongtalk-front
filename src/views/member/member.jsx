@@ -4,6 +4,7 @@ import NavbarL from "../../layout/navbar/navbar";
 import Statistics from "../../components/statistics/statistics";
 
 const Member = (props) => {
+
     return (
         <HeaderL>
             <div className='container'>

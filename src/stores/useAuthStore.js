@@ -1,8 +1,9 @@
-import create from 'zustand';
+import {create} from 'zustand';
 import axios from 'axios';
 
 const useAuthStore = create((set, get) => ({
     accessToken: localStorage.getItem('accessToken') || null,
+    reissueUrl: 'http://localhost:8080/reissue',
     naverLoginUrl: 'http://localhost:8080/oauth2/authorization/naver',
     kakaoLoginUrl: 'http://localhost:8080/oauth2/authorization/kakao',
 
@@ -16,10 +17,12 @@ const useAuthStore = create((set, get) => ({
         set({ accessToken: null });
     },
 
-    reissueAccessToken: async () => {
+    reissueAccessToken: async (reissueUrl) => {
         try {
-            const response = await axios.post('http://localhost:8080/resissue', {});
-            return response.data.accessToken;
+            const response = await axios.post(reissueUrl, {}, { withCredentials: true });
+            const newToken = response.data;
+            get().setAccessToken(newToken);
+            return newToken;
         } catch (error) {
             get().clearToken();
             window.location.href = '/login';
