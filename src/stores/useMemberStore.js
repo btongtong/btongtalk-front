@@ -4,8 +4,8 @@ import api from "../apis/api";
 const useMemberStore = create((set, get) => ({
     profile: {
         profileImg: null,
-        name: '',
-        email: '',
+        name: null,
+        email: null,
     },
 
     getProfile: async () => {

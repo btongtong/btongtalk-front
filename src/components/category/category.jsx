@@ -4,19 +4,22 @@ import useFillColor from "../../hooks/useFillColor";
 const Category = (props) => {
 
     const { fillColor, handleMouseOver, handleMouseLeave } = useFillColor('var(--gray-60)', 'var(--primary-color)');
+    const { category, onClickHandler } = props;
+    const { name, description, count } = category;
 
     return (
         <div
             className='category-box'
             onMouseOver={handleMouseOver}
-            onMouseLeave={handleMouseLeave}>
+            onMouseLeave={handleMouseLeave}
+            onClick={onClickHandler}>
             <div className='category-title-box'>
-                <h2 className='title'>DATABASE</h2>
-                <p className='description'>데이터베이스에 대해 공부해봅시다.</p>
+                <h2 className='title'>{name}</h2>
+                <p className='description'>{description}</p>
             </div>
             <div className='question-cnt-box'>
-                <FaPlay fill={fillColor}/>
-                <p className='description'><span className='question-cnt description'>32</span> Questions</p>
+                <p className='description'><span className='question-cnt description'>{count}</span> Questions</p>
+                <FaPlay fill={fillColor} size={14}/>
             </div>
         </div>
     )
