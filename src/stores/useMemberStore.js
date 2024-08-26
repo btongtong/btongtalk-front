@@ -1,5 +1,6 @@
 import {create} from "zustand";
 import api from "../apis/api";
+import API_URLS from "../apis/url";
 
 const useMemberStore = create((set, get) => ({
     profile: {
@@ -7,13 +8,15 @@ const useMemberStore = create((set, get) => ({
         name: null,
         email: null,
     },
+    isLoading: false,
 
     getProfile: async () => {
         try {
-            const { profile } = get();
+            const { isLoading } = get();
 
-            if(!profile.name || !profile.email) {
-                const response = await api.get('http://localhost:8080/member');
+            if(!isLoading) {
+                const response = await api.get(API_URLS.GET_MEMBER());
+                set({ isLoading: true });
                 set({
                     profile: response.data
                 });

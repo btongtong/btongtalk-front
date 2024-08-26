@@ -15,6 +15,10 @@
     background-color: var(--gray-5);
 }
 
+.pagination-box button.hidden {
+    display: none;
+}
+
 .pagination-box button:not(.page-no button) {
     border-radius: 50%;
 }

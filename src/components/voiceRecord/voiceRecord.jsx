@@ -1,5 +1,5 @@
 import './voiceRecord.css'
-import useRecord from "../../hooks/uesRecord";
+import useRecord from "../../hooks/useRecord";
 import { MdOutlineKeyboardVoice } from "react-icons/md";
 import { FaRegCircleStop } from "react-icons/fa6";
 import useFillColor from "../../hooks/useFillColor";

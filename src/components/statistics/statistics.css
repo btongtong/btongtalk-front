@@ -13,18 +13,13 @@
 
 .chart-box {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: var(--layout-2);
 
     width: 100%;
 }
 
-.chart {
-    width: 300px;
-    height: 300px;
-}
-
 .chart-table {
+    margin-left: var(--layout-2);
     width: 100%;
 }

@@ -18,11 +18,11 @@ const useSubCategoryStore = create((set, get) => ({
 
             if(!isLoding) {
                 const response = await api.get(API_URLS.GET_SUB_CATEGORIES(categoryId));
-                const { categoryList, rootName, rootDescription } = response.data;
+                const { subCategories, rootName, rootDescription } = response.data;
 
                 set({ isLoading: true });
                 set({
-                    subCategories: categoryList,
+                    subCategories,
                     titleData: {title: rootName, subtitle: rootDescription}
                 });
             }

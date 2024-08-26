@@ -1,41 +1,42 @@
 import './pagination.css';
-import {useState} from "react";
+import {useEffect} from "react";
 
 const Pagination = (props) => {
-    // const { currentPage, totalPages, onPageChange } = props;
-
-    const [currentPage, setCurrentPage] = useState(1);
-    const totalPages = 5;
-    const onPageChange = (newPage) => {
-        setCurrentPage(newPage)
+    const { totalPages, page, setPage } = props.pageData;
+    const handleClick = (newPage) => {
+        if(newPage >= 0 && newPage < totalPages) {
+            setPage(newPage);
+        }
     }
 
-    const handleClick = (newPage) => {
-        onPageChange(newPage);
-    };
+    useEffect(() => {
+        if(page >= totalPages) {
+            setPage(totalPages-1);
+        }
+    }, [totalPages]);
 
     return (
         <div className="pagination-box">
             <button
-                onClick={() => handleClick(currentPage - 1)}
-                disabled={currentPage === 1}
+                onClick={() => handleClick(page - 1)}
+                className={page === 0 ? 'hidden' : ''}
             >
                 &lt;
             </button>
             <div className='page-no'>
-                {[...Array(totalPages).keys()].map(page => (
+                {[...Array(totalPages).keys()].map(no => (
                     <button
-                        key={page + 1}
-                        onClick={() => handleClick(page + 1)}
-                        className={page + 1 === currentPage ? 'active' : ''}
+                        key={no}
+                        onClick={() => handleClick(no)}
+                        className={no === page ? 'active' : ''}
                     >
-                        {page + 1}
+                        {no + 1}
                     </button>
                 ))}
             </div>
             <button
-                onClick={() => handleClick(currentPage + 1)}
-                disabled={currentPage === totalPages}
+                onClick={() => handleClick(page + 1)}
+                className={page + 1 === totalPages ? 'hidden' : ''}
             >
                 &gt;
             </button>

@@ -28,7 +28,7 @@ const Subcategory = (props) => {
                                 key={subCategory.id}
                                 category={subCategory}
                                 countTitle={countTitle}
-                                onClickHandler={() => navigate(URLS.FLASHCARD(subCategory.id))}
+                                onClickHandler={() => navigate(URLS.FLASHCARDS(subCategory.id))}
                             />
                         ))) :
                         (<div className='no-category-list'>

@@ -1,43 +1,53 @@
 import './table.css';
-import {useState} from "react";
 import Pagination from "../pagination/pagination";
+import {useNavigate} from "react-router-dom";
 
 const Table = (props) => {
-    // const {headers, data, showPagination} = props;
+    const navigate = useNavigate();
+    const { showPagination, navigateUrl, headers, data } = props.propsData;
+    const { pageData } = props.propsData;
+    const statusColIndex = headers.indexOf('상태');
 
-    const { showPagination } = props;
-    const headers = ['id', 'category', 'question', 'datetime'];
-    const data = [
-        {id: 1, category: 'DB', question: '인덱싱에 대하여 설명하세요.', datetime: '2024-08-20'},
-        {id: 2, category: 'NETWORK', question: 'IP의 종류에 대하여 설명하세요.', datetime: '2024-08-21'},
-        {id: 3, category: 'NETWORK', question: 'IP의 종류에 대하여 설명하세요.', datetime: '2024-08-21'},
-        {id: 4, category: 'NETWORK', question: 'IP의 종류에 대하여 설명하세요.', datetime: '2024-08-21'},
-        {id: 5, category: 'NETWORK', question: 'IP의 종류에 대하여 설명하세요.', datetime: '2024-08-21'},
-        {id: 6, category: 'NETWORK', question: 'IP의 종류에 대하여 설명하세요.', datetime: '2024-08-21'}
-    ]
+    const getStatusClass = (colIndex, status) => {
+        if(colIndex === statusColIndex) {
+            if (status === 'KNOWN') return 'known-status';
+            if (status === 'UNKNOWN') return 'unknown-status';
+        }
+        return '';
+    };
+
+    const handleClick = (id) => {
+        const url = navigateUrl(id);
+        navigate(url);
+    }
 
     return (
         <div className='table-box'>
             <table>
                 <thead>
-                    <tr>
-                        {headers.map((header, index) => (
-                            <th key={index}>{header}</th>
-                        ))}
-                    </tr>
+                <tr>
+                    {headers.map((header, index) => (
+                        <th key={index}>{header}</th>
+                    ))}
+                </tr>
                 </thead>
                 <tbody>
-                    {data.map((row, rowIndex) => (
-                        <tr key={rowIndex}>
-                            {headers.map((header, colIndex) => (
-                                <td key={colIndex}>{row[header]}</td>
-                            ))}
-                        </tr>
-                    ))}
+                {data.map((row) => (
+                    <tr key={row['#']}
+                        onClick={() => handleClick(row['#'])}>
+                        {headers.map((header, colIndex) => {
+                            return (
+                                <td key={colIndex} className={getStatusClass(colIndex, row[header])}>
+                                    {row[header]}
+                                </td>
+                            );
+                        })}
+                    </tr>
+                ))}
                 </tbody>
             </table>
             {showPagination && (
-                <Pagination/>
+                <Pagination pageData={pageData}/>
             )}
         </div>
     )

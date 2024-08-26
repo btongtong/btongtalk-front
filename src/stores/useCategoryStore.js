@@ -14,9 +14,9 @@ const useCategoryStore = create((set, get) => ({
 
     getCategories: async () => {
         try {
-            const { isLoding } = get();
+            const { isLoading } = get();
 
-            if(!isLoding) {
+            if(!isLoading) {
                 const response = await api.get(API_URLS.GET_CATEGORIES());
                 set({ isLoading: true });
                 set({ categories: response.data });
