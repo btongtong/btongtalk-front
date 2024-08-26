@@ -1,0 +1,52 @@
+.flashcard-chart-box .title {
+    color: var(--gray-60);
+}
+
+.flashcard-chart {
+    margin: var(--spacing-2) 0;
+    padding: var(--spacing-4);
+    border-radius: .5rem;
+    background-color: var(--gray-5);
+
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-7);
+}
+
+.doughnut-chart-box {
+    width: 150px;
+}
+
+.bar-chart-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.bar-chart-box .bar {
+    height: 35px;
+    border-radius: 35px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 var(--spacing-4);
+}
+
+.bar-chart-box .bar:hover {
+    border: none;
+}
+
+.bar-chart-box .known {
+    background-color: var(--success-border);
+}
+
+.bar-chart-box .unknown {
+    background-color: var(--danger-border);
+}
+
+.bar-chart-box .norecord {
+    background-color: var(--gray-10);
+}

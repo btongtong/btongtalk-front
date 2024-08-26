@@ -24,7 +24,7 @@ const Record = (props) => {
 
     useEffect(() => {
         getRecords(status, page);
-    }, [status, page, getRecords, customRecords]);
+    }, [status, page, getRecords]);
 
     return (
         <HeaderL>

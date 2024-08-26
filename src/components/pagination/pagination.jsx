@@ -10,7 +10,7 @@ const Pagination = (props) => {
     }
 
     useEffect(() => {
-        if(page !== 0 && page >= totalPages) {
+        if(totalPages !== 0 && page >= totalPages) {
             setPage(totalPages-1);
         }
     }, [totalPages]);
@@ -36,7 +36,7 @@ const Pagination = (props) => {
             </div>
             <button
                 onClick={() => handleClick(page + 1)}
-                className={page + 1 === totalPages ? 'hidden' : ''}
+                className={(totalPages === 0 || page + 1 === totalPages) ? 'hidden' : ''}
             >
                 &gt;
             </button>

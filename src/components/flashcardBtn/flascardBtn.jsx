@@ -5,13 +5,13 @@ import STATUS from "../../constant/recordStatus";
 const FlashcardBtn = (props) => {
     const { flashcardId } = props;
     const { doFlashcards, doneFlashcards, updateRecordStatus, moveFlashcardToDone } = useFlashcardStore();
-    const handleKnownBtnClick = (flashcardId) => {
-        updateRecordStatus(flashcardId, STATUS.KNOWN);
+    const handleKnownBtnClick = async (flashcardId) => {
+        await updateRecordStatus(flashcardId, STATUS.KNOWN);
         moveFlashcardToDone();
     }
 
-    const handleUnknownBtnClick = (flashcardId) => {
-        updateRecordStatus(flashcardId, STATUS.UNKNOWN);
+    const handleUnknownBtnClick = async (flashcardId) => {
+        await updateRecordStatus(flashcardId, STATUS.UNKNOWN);
         moveFlashcardToDone();
     }
 

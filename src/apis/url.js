@@ -18,6 +18,7 @@ const API_URLS = {
     GET_FLASHCARD: (flashcardId) => `${DOMAIN}/flashcards/${flashcardId}`,
 
     GET_STATISTICS: (status) => `${DOMAIN}/records/statistics?status=${status}`,
+    GET_STATISTICS_BY_STATUS: (categoryId) => `${DOMAIN}/records/statistics/status?categoryId=${categoryId}`,
     GET_RECORDS: (status, page) => `${DOMAIN}/records?status=${status}&page=${page}`,
     POST_RECORDS: () => `${DOMAIN}/records`,
     POST_RECORD: () => `${DOMAIN}/records/record`,

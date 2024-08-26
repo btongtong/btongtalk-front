@@ -10,7 +10,7 @@ import useMemberStore from "../../stores/useMemberStore";
 const Member = (props) => {
 
     const { getProfile } = useMemberStore();
-    const { getStatistics, trigger } = useStatisticStore();
+    const { getStatistics } = useStatisticStore();
 
     useEffect(() => {
         getProfile();
@@ -18,7 +18,7 @@ const Member = (props) => {
 
     useEffect(() => {
         getStatistics(STATUS.KNOWN);
-    }, [getStatistics, trigger]);
+    }, [getStatistics]);
 
     return (
         <HeaderL>

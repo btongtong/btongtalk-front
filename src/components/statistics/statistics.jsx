@@ -6,6 +6,7 @@ import Table from "../table/table";
 import useStatisticStore from "../../stores/useStatisticStore";
 import URLS from "../../constant/url";
 import useSetChart from "../../hooks/useSetChart";
+import CHART_STATUS from "../../constant/chartStatus";
 Chart.register(LineElement, LineController, ChartDataLabels, ArcElement, Tooltip, Legend, Colors);
 
 const Statistics = (props) => {
@@ -18,7 +19,11 @@ const Statistics = (props) => {
         data: customStatistics
     }
 
-    const { chartData, options, total } = useSetChart(statistics);
+    const labels = statistics.map(item => item.name);
+    const counts = statistics.map(item => item.count);
+    const total = statistics.reduce((sum, item) => sum + item.count, 0);
+
+    const { chartData, options } = useSetChart({labels, counts, total, status:CHART_STATUS.CATEGORY});
 
     return (
         <div className='statistics-box'>

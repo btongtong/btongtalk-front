@@ -4,12 +4,14 @@ import useMemberStore from "../../stores/useMemberStore";
 
 const Profile = (props) => {
     const { profile } = useMemberStore();
-    const { email } = profile;
+    const { name, email } = profile;
 
     return (
         <div className='profile-box'>
             <ProfileImg width={'120px'} height={'120px'}/>
-            <h2 className='email heading'>{email}</h2>
+            <div className='spacing'></div>
+            <h2 className='name heading'>{name}</h2>
+            <span className='email description'>{email}</span>
         </div>
     )
 }

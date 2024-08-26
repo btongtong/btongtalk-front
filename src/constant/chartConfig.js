@@ -14,6 +14,11 @@ const CHART_CONFIG = {
         "#36A2EB",
         "#9966FF",
         "#FF66CC"
+    ],
+    CORRECT_WRONG_COLOR: [
+        "#008A1E",
+        "#EB003B",
+        "#717171"
     ]
 }
 

@@ -1,15 +1,14 @@
 import CHART_CONFIG from "../constant/chartConfig";
+import CHART_STATUS from "../constant/chartStatus";
 
-const useSetChart = (data) => {
-    const labels = data.map(item => item.name);
-    const counts = data.map(item => item.count);
-    const total = data.reduce((sum, item) => sum + item.count, 0);
+const useSetChart = (props) => {
+    const { labels, counts, total, status } = props;
 
     const chartData = {
         labels: labels,
         datasets: [{
             data: counts,
-            backgroundColor: CHART_CONFIG.BACKGROUND_COLOR,
+            backgroundColor: (status === CHART_STATUS.FLASHCARD ? CHART_CONFIG.CORRECT_WRONG_COLOR : CHART_CONFIG.BACKGROUND_COLOR),
             cutout: CHART_CONFIG.CUTOUT
         }],
     }
@@ -39,7 +38,6 @@ const useSetChart = (data) => {
     }
 
     return {
-        total,
         chartData,
         options
     }

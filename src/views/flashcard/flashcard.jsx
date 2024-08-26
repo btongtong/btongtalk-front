@@ -8,6 +8,8 @@ import useFlashcardStore from "../../stores/useFlashcardStore";
 import {useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import FLASHCARD_STATUS from "../../constant/flashcardStatus";
+import useStatisticStore from "../../stores/useStatisticStore";
+import FlashcardStatistics from "../../components/flashcardStatistics/flashcardStatistics";
 
 const Flashcard = (props) => {
     const navigate = useNavigate();
@@ -15,6 +17,7 @@ const Flashcard = (props) => {
     const { categoryId, flashcardId } = params;
     const { status } = props;
     const { titleData, doFlashcards, getFlashcards, getFlashcard, updateRecordsProgress } = useFlashcardStore();
+    const { getStatisticsByFlashcard } = useStatisticStore();
 
     useEffect(() => {
         if(status === FLASHCARD_STATUS.FLASHCARD && flashcardId) {
@@ -24,6 +27,12 @@ const Flashcard = (props) => {
             getFlashcards(categoryId);
         }
     }, [status, getFlashcards, categoryId, flashcardId]);
+
+    useEffect(() => {
+        if(doFlashcards.length === 0) {
+            getStatisticsByFlashcard(categoryId);
+        }
+    }, [doFlashcards.length, categoryId, getStatisticsByFlashcard]);
 
     return (
         <HeaderL>
@@ -37,9 +46,12 @@ const Flashcard = (props) => {
                         />
                     ) : (
                         <div className='finish-flashcard-list'>
-                            완료하셨습니다! 다시 시작하시겠습니까?
+                            <h1 className='heading'>수고하셨습니다, 모든 질문이 끝났습니다!</h1>
+                            <FlashcardStatistics/>
                             {status === FLASHCARD_STATUS.FLASHCARDS ? (
-                                <button onClick={() => updateRecordsProgress(params.categoryId, false)}>버튼</button>
+                                <button onClick={() => updateRecordsProgress(params.categoryId, false)}>
+                                    <span>{titleData.title}</span> 다시 공부하기
+                                </button>
                             ) : (
                                 <button onClick={() => navigate(-1)}>돌아가기</button>
                             )}

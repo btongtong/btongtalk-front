@@ -1,3 +1,34 @@
 .flashcard-list {
-    padding: var(--spacing-4);
+    margin: var(--spacing-4);
+    border-radius: .5rem;
+    box-shadow: 0 0 6px var(--gray-40);
+}
+
+.finish-flashcard-list {
+    height: 400px;
+    max-width: 576px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 0 auto;
+    padding: var(--spacing-9) 0;
+}
+
+.finish-flashcard-list button {
+    cursor: pointer;
+    padding: var(--spacing-2);
+    border-radius: .5rem;
+    background-color: var(--primary-color);
+    color: var(--gray-0);
+    text-align: center;
+}
+
+.finish-flashcard-list button:hover {
+    opacity: 0.9;
+}
+
+.finish-flashcard-list button span {
+    color: var(--gray-0);
 }
