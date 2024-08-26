@@ -1,0 +1,17 @@
+.no-category-list {
+    width: 100%;
+    height: 400px;
+    margin: var(--spacing-4);
+    background-color: var(--gray-5);
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.no-category-list .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}

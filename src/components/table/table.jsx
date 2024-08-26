@@ -32,18 +32,23 @@ const Table = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {data.map((row) => (
-                    <tr key={row['#']}
-                        onClick={() => handleClick(row['#'])}>
-                        {headers.map((header, colIndex) => {
-                            return (
+                {data.length === 0 ? (
+                    <tr className='no-data-tr'>
+                        <td colSpan={headers.length} className='no-data-td'>
+                            <span className='title'>데이터가 존재하지 않습니다.</span>
+                        </td>
+                    </tr>
+                ) : (
+                    data.map((row) => (
+                        <tr key={row['#']} onClick={() => handleClick(row['#'])}>
+                            {headers.map((header, colIndex) => (
                                 <td key={colIndex} className={getStatusClass(colIndex, row[header])}>
                                     {row[header]}
                                 </td>
-                            );
-                        })}
-                    </tr>
-                ))}
+                            ))}
+                        </tr>
+                    ))
+                )}
                 </tbody>
             </table>
             {showPagination && (

@@ -33,6 +33,23 @@
     font-weight: bold;
 }
 
+.table-box .no-data-tr {
+    border-bottom: 1px solid var(--gray-40);
+}
+
+.table-box .no-data-tr:hover {
+    box-shadow: none;
+}
+
+.table-box .no-data-td {
+    padding: var(--layout-1);
+    text-align: center;
+}
+
+.no-data-td .title {
+    color: var(--gray-60)
+}
+
 .known-status {
     color: var(--success-text);
 }

@@ -33,7 +33,12 @@ const Statistics = (props) => {
             </div>
             <div className='chart-box'>
                 <div className='chart'>
-                    {(total !== 0) ? (<Doughnut data={chartData} options={options}/>) : (<div className='no-chart'>해결한 문제가 없습니다.</div>)}
+                    {(total !== 0) ? (<Doughnut data={chartData} options={options}/>) :
+                        (<div className='no-chart'>
+                            <div className='logo'></div>
+                            <p className='description'>문제를 풀고 분포도를 확인하세요.</p>
+                        </div>)
+                    }
                 </div>
                 <div className='chart-table'>
                     <Table propsData={propsData} />

@@ -6,12 +6,12 @@ import Category from "../../components/category/category";
 import useMemberStore from "../../stores/useMemberStore";
 import useCategoryStore from "../../stores/useCategoryStore";
 import {useNavigate} from "react-router-dom";
-import {GET_SUB_CATEGORIES} from "../../apis/url";
 import URLS from "../../constant/url";
+import NoCategory from "../../components/noCategory/noCategory";
 
 const Main = (props) => {
-    const { getProfile } = useMemberStore();
-    const { titleData, countTitle, categories, getCategories } = useCategoryStore();
+    const {getProfile} = useMemberStore();
+    const {titleData, countTitle, categories, getCategories} = useCategoryStore();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,23 +22,30 @@ const Main = (props) => {
         getCategories();
     }, [getCategories]);
 
-    return(
+    if (categories.length === 0) {
+        return (
+            <HeaderL>
+                <div className='container'>
+                    <Heading data={titleData}/>
+                    <NoCategory/>
+                </div>
+            </HeaderL>
+        )
+    }
+
+    return (
         <HeaderL>
             <div className='container'>
                 <Heading data={titleData}/>
                 <section className='category-list'>
-                    {categories.length !== 0 ? (categories.map((category) => (
-                            <Category
-                                key={category.id}
-                                category={category}
-                                countTitle={countTitle}
-                                onClickHandler={() => navigate(URLS.CATEGORY(category.id))}
-                            />
-                        ))) :
-                        (<div className='no-category-list'>
-                            카테고리가 존재하지 않습니다!
-                        </div>)
-                    }
+                    {categories.map((category) => (
+                        <Category
+                            key={category.id}
+                            category={category}
+                            countTitle={countTitle}
+                            onClickHandler={() => navigate(URLS.CATEGORY(category.id))}
+                        />
+                    ))}
                 </section>
             </div>
         </HeaderL>

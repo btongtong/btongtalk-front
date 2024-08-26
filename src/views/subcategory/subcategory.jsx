@@ -6,35 +6,41 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useEffect} from "react";
 import URLS from "../../constant/url";
 import useSubCategoryStore from "../../stores/useSubCategoryStore";
+import NoCategory from "../../components/noCategory/noCategory";
 
 const Subcategory = (props) => {
     const navigate = useNavigate();
     const params = useParams();
-    const { countTitle, titleData, subCategories, getSubCategories } = useSubCategoryStore();
+    const {countTitle, titleData, subCategories, getSubCategories} = useSubCategoryStore();
 
     useEffect(() => {
         getSubCategories(params.categoryId);
     }, [getSubCategories, params.categoryId]);
 
-
+    if (subCategories.length === 0) {
+        return (
+            <HeaderL>
+                <div className='container'>
+                    <Heading data={titleData}/>
+                    <NoCategory/>
+                </div>
+            </HeaderL>
+        )
+    }
 
     return (
         <HeaderL>
             <div className='container'>
                 <Heading data={titleData}/>
                 <section className='subcategory-list'>
-                    {subCategories.length !== 0 ? (subCategories.map((subCategory) => (
-                            <Category
-                                key={subCategory.id}
-                                category={subCategory}
-                                countTitle={countTitle}
-                                onClickHandler={() => navigate(URLS.FLASHCARDS(subCategory.id))}
-                            />
-                        ))) :
-                        (<div className='no-category-list'>
-                            카테고리가 존재하지 않습니다!
-                        </div>)
-                    }
+                    {subCategories.map((subCategory) => (
+                        <Category
+                            key={subCategory.id}
+                            category={subCategory}
+                            countTitle={countTitle}
+                            onClickHandler={() => navigate(URLS.FLASHCARDS(subCategory.id))}
+                        />
+                    ))}
                 </section>
             </div>
         </HeaderL>
