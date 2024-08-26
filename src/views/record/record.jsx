@@ -2,7 +2,7 @@ import HeaderL from "../../layout/header/header";
 import Profile from "../../components/profile/profile";
 import NavbarL from "../../layout/navbar/navbar";
 import Table from "../../components/table/table";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import URLS from "../../constant/url";
 import useRecordStore from "../../stores/useRecordStore";
 

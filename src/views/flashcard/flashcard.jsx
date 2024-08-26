@@ -16,7 +16,7 @@ const Flashcard = (props) => {
     const params = useParams();
     const { categoryId, flashcardId } = params;
     const { status } = props;
-    const { titleData, doFlashcards, getFlashcards, getFlashcard, updateRecordsProgress } = useFlashcardStore();
+    const { titleData, doFlashcards, getFlashcards, getFlashcard, updateRecordsProgress, flashcardCategoryId } = useFlashcardStore();
     const { getStatisticsByFlashcard } = useStatisticStore();
 
     useEffect(() => {
@@ -26,13 +26,15 @@ const Flashcard = (props) => {
         if(status === FLASHCARD_STATUS.FLASHCARDS && categoryId) {
             getFlashcards(categoryId);
         }
-    }, [status, getFlashcards, categoryId, flashcardId]);
+    }, [status, getFlashcards, getFlashcard, categoryId, flashcardId]);
 
     useEffect(() => {
-        if(doFlashcards.length === 0) {
+        if(status === FLASHCARD_STATUS.FLASHCARDS && categoryId && doFlashcards.length === 0) {
             getStatisticsByFlashcard(categoryId);
+        } else if(status === FLASHCARD_STATUS.FLASHCARD && flashcardCategoryId && doFlashcards.length === 0) {
+            getStatisticsByFlashcard(flashcardCategoryId);
         }
-    }, [doFlashcards.length, categoryId, getStatisticsByFlashcard]);
+    }, [status, doFlashcards.length, categoryId, flashcardCategoryId, getStatisticsByFlashcard]);
 
     return (
         <HeaderL>

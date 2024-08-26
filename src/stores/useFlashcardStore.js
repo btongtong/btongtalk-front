@@ -1,7 +1,6 @@
 import {create} from "zustand";
 import api from "../apis/api";
 import API_URLS from "../apis/url";
-import FLASHCARD_STATUS from "../constant/flashcardStatus";
 
 const useFlashcardStore = create((set, get) => ({
     titleData: {
@@ -10,6 +9,7 @@ const useFlashcardStore = create((set, get) => ({
     },
     doneFlashcards: [],
     doFlashcards: [],
+    flashcardCategoryId: null,
 
     getFlashcards: async (categoryId) => {
         try {
@@ -40,13 +40,15 @@ const useFlashcardStore = create((set, get) => ({
     getFlashcard: async (flashcardId) => {
         try {
             const response = await api.get(API_URLS.GET_FLASHCARD(flashcardId));
-            const { id, question, answer, categoryName, categoryDescription } = response.data;
+            const { id, question, answer, categoryId, categoryName, categoryDescription } = response.data;
 
             set({
+                flashcardCategoryId: categoryId,
                 doFlashcards: [{ id, question, answer }],
                 doneFlashcards:[],
                 titleData: { title: categoryName, subtitle: categoryDescription },
             });
+            console.log(get().flashcardCategoryId);
         } catch (error) {
             console.error('데이터를 가져오는데 실패하였습니다. 나중에 다시 시도해주세요.');
         }
