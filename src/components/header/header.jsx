@@ -1,20 +1,22 @@
 import './header.css';
 import ProfileImg from "../profileImg/profileImg";
 import { IoIosSearch } from "react-icons/io";
-import {NavLink, useNavigate} from "react-router-dom";
+import {NavLink, useNavigate, useSearchParams} from "react-router-dom";
 import {useState} from "react";
 import URLS from "../../constant/url";
 import useSearchFlashcardStore from "../../stores/useSearchFlashcardStore";
 
 const Header = (props) => {
     const navigate = useNavigate();
-    const [searchQuery, setSearchQuery] = useState('');
-    const { getSearchFlashcards } = useSearchFlashcardStore();
+    const [searchParams] = useSearchParams();
+    const [searchQuery, setSearchQuery] = useState(searchParams.get('question') || '');
+    const { getSearchFlashcards, setPage, page } = useSearchFlashcardStore();
 
     const handleSearchSubmit = (event) => {
         event.preventDefault();
         if(searchQuery) {
-            getSearchFlashcards(searchQuery);
+            setPage(0);
+            getSearchFlashcards(searchQuery, page);
             navigate(URLS.SEARCH_FLASHCARD_QUERY(searchQuery));
         }
     };

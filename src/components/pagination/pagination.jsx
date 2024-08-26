@@ -10,7 +10,7 @@ const Pagination = (props) => {
     }
 
     useEffect(() => {
-        if(page >= totalPages) {
+        if(page !== 0 && page >= totalPages) {
             setPage(totalPages-1);
         }
     }, [totalPages]);

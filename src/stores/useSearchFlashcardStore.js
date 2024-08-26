@@ -13,10 +13,10 @@ const useSearchFlashcardStore = create((set, get) => ({
     totalPages: 0,
     page: 0,
 
-    getSearchFlashcards: async (question) => {
+    getSearchFlashcards: async (question, page) => {
         try {
             if(question !== null) {
-                const response = await api.get(API_URLS.GET_SEARCH_FLASHCARD(question));
+                const response = await api.get(API_URLS.GET_SEARCH_FLASHCARD(question, page));
                 const { headers } = get();
                 const { flashcards, totalPages } = response.data;
                 const customData = flashcards.map(item => ({

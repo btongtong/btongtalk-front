@@ -9,7 +9,7 @@ import {useSearchParams} from "react-router-dom";
 
 const SearchFlashcard = (props) => {
     const [ searchParams ] = useSearchParams();
-    const { question } = searchParams.get('question');
+    const question = searchParams.get('question');
     const { titleData, getSearchFlashcards, headers, customSearchFlashcards, totalPages, page, setPage } = useSearchFlashcardStore();
     const propsData = {
         showPagination: true,
@@ -25,7 +25,7 @@ const SearchFlashcard = (props) => {
 
     useEffect(() => {
         if(question) {
-            getSearchFlashcards(question);
+            getSearchFlashcards(question, page);
         }
     }, [page, getSearchFlashcards, question]);
 

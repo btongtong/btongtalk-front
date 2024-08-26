@@ -22,7 +22,6 @@ const Record = (props) => {
         }
     }
 
-
     useEffect(() => {
         getRecords(status, page);
     }, [status, page, getRecords, customRecords]);

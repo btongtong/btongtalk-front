@@ -14,7 +14,7 @@ const API_URLS = {
     GET_SUB_CATEGORIES: (categoryId) => `${DOMAIN}/categories/${categoryId}`,
 
     GET_FLASHCARDS: (categoryId) => `${DOMAIN}/categories/${categoryId}/flashcards`,
-    GET_SEARCH_FLASHCARD: (question) => `${DOMAIN}/flashcards?question=${question}`,
+    GET_SEARCH_FLASHCARD: (question, page) => `${DOMAIN}/flashcards?question=${question}&page=${page}`,
     GET_FLASHCARD: (flashcardId) => `${DOMAIN}/flashcards/${flashcardId}`,
 
     GET_STATISTICS: (status) => `${DOMAIN}/records/statistics?status=${status}`,
