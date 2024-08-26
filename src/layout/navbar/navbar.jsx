@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import Navbar from "../../components/navbar/navbar";
+import LogoutWithdraw from "../../components/logoutWithdraw/logoutWithdraw";
 
 const NavbarL = ({ children }) => {
     return (
@@ -8,6 +9,7 @@ const NavbarL = ({ children }) => {
             <main>
                 {children}
             </main>
+            <LogoutWithdraw/>
         </div>
     );
 };

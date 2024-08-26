@@ -1,0 +1,18 @@
+.logout-withdraw-box {
+    width: 100%;
+}
+
+.divide-line {
+    width: 100%;
+    border-bottom: 1px solid var(--gray-40);
+}
+
+.logout-withdraw-buttons {
+    padding: var(--spacing-4);
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.logout-withdraw-buttons button:hover {
+    color: var(--primary-color);
+}
