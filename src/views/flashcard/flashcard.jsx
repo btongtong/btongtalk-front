@@ -5,7 +5,7 @@ import FlashcardC from "../../components/flashcard/flashcard";
 import FlashcardBtn from "../../components/flashcardBtn/flascardBtn";
 import VoiceRecord from "../../components/voiceRecord/voiceRecord";
 import useFlashcardStore from "../../stores/useFlashcardStore";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import FLASHCARD_STATUS from "../../constant/flashcardStatus";
 import useStatisticStore from "../../stores/useStatisticStore";
@@ -14,10 +14,12 @@ import FlashcardStatistics from "../../components/flashcardStatistics/flashcardS
 const Flashcard = (props) => {
     const navigate = useNavigate();
     const params = useParams();
-    const { categoryId, flashcardId } = params;
     const { status } = props;
+    const { categoryId, flashcardId } = params;
     const { titleData, doFlashcards, getFlashcards, getFlashcard, updateRecordsProgress, flashcardCategoryId } = useFlashcardStore();
     const { getStatisticsByFlashcard } = useStatisticStore();
+
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         if(status === FLASHCARD_STATUS.FLASHCARD && flashcardId) {

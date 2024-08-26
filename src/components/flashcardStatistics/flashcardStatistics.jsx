@@ -1,16 +1,15 @@
 import './flashcardStatistics.css'
 import {Doughnut} from "react-chartjs-2";
 import useStatisticStore from "../../stores/useStatisticStore";
-import {useEffect} from "react";
 import useSetChart from "../../hooks/useSetChart";
 import CHART_STATUS from "../../constant/chartStatus";
 
 const FlashcardStatistics = (props) => {
-    const { statistics, headers } = useStatisticStore();
+    const { statistics } = useStatisticStore();
 
-    const labels = headers;
-    const counts = statistics;
-    const total = statistics.reduce((sum, item) => sum + item, 0);
+    const labels = statistics.map(item => item.name);
+    const counts = statistics.map(item => item.count);
+    const total = statistics.reduce((sum, item) => sum + item.count, 0);
 
     const { chartData, options } = useSetChart({labels, counts, total, status:CHART_STATUS.FLASHCARD});
 

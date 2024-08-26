@@ -31,8 +31,14 @@ const useStatisticStore = create((set, get) => ({
         try {
             const response = await api.get(API_URLS.GET_STATISTICS_BY_STATUS(categoryId));
             const { knownCnt, unknownCnt, restCnt } = response.data;
-            set({ headers: [ '맞은 문제', '틀린 문제', '남은 문제' ] });
-            set({ statistics: [ knownCnt, unknownCnt, restCnt ] });
+            set({
+                headers: ['맞은 문제', '틀린 문제', '남은 문제'],
+                statistics: [
+                    {name: '맞은 문제', count: knownCnt},
+                    {name: '틀린 문제', count: unknownCnt},
+                    {name: '남은 문제', count: restCnt}
+                ]
+            });
         } catch (error) {
             console.error('데이터를 가져오는데 실패하였습니다. 나중에 다시 시도해주세요.');
         }

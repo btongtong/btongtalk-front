@@ -48,7 +48,6 @@ const useFlashcardStore = create((set, get) => ({
                 doneFlashcards:[],
                 titleData: { title: categoryName, subtitle: categoryDescription },
             });
-            console.log(get().flashcardCategoryId);
         } catch (error) {
             console.error('데이터를 가져오는데 실패하였습니다. 나중에 다시 시도해주세요.');
         }
@@ -56,8 +55,8 @@ const useFlashcardStore = create((set, get) => ({
 
     updateRecordsProgress: async (categoryId, progress) => {
         try {
-            const response = await api.post(API_URLS.POST_RECORDS(), { categoryId, progress });
-            get().getFlashcards(categoryId);
+            await api.post(API_URLS.POST_RECORDS(), { categoryId, progress });
+            await get().getFlashcards(categoryId);
         } catch (error) {
             console.error('데이터 업데이트에 실패하였습니다. 나중에 다시 시도해주세요.');
         }
@@ -65,7 +64,7 @@ const useFlashcardStore = create((set, get) => ({
 
     updateRecordStatus: async (flashcardId, status) => {
         try {
-            const response = await api.post(API_URLS.POST_RECORD(), { flashcardId, status });
+            await api.post(API_URLS.POST_RECORD(), { flashcardId, status });
         } catch (error) {
             console.error('데이터 업데이트에 실패하였습니다. 나중에 다시 시도해주세요.');
         }
