@@ -1,7 +1,10 @@
 .flashcard-list {
     margin: var(--spacing-4);
-    border-radius: .5rem;
+}
+
+.finish-flashcard-box {
     box-shadow: 0 0 6px var(--gray-40);
+    border-radius: .5rem;
 }
 
 .finish-flashcard-list {

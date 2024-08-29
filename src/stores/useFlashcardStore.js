@@ -83,6 +83,10 @@ const useFlashcardStore = create((set, get) => ({
         }
     },
 
+    clearFlashcards: () => {
+        set({doFlashcards: [], doneFlashcards: []});
+    }
+
 }));
 
 export default useFlashcardStore;

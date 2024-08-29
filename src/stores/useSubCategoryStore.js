@@ -31,6 +31,10 @@ const useSubCategoryStore = create((set, get) => ({
         }
     },
 
+    clearSubCategories: () => {
+        set({subCategories: []});
+    }
+
 }));
 
 export default useSubCategoryStore;

@@ -3,7 +3,7 @@ import HeaderL from "../../layout/header/header";
 import Heading from "../../components/heading/heading";
 import Category from "../../components/category/category";
 import {useNavigate, useParams} from "react-router-dom";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import URLS from "../../constant/url";
 import useSubCategoryStore from "../../stores/useSubCategoryStore";
 import NoCategory from "../../components/noCategory/noCategory";
@@ -12,10 +12,23 @@ const Subcategory = (props) => {
     const navigate = useNavigate();
     const params = useParams();
     const {countTitle, titleData, subCategories, getSubCategories} = useSubCategoryStore();
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        getSubCategories(params.categoryId);
+        const setData = async () => {
+            setIsLoading(true);
+            await getSubCategories(params.categoryId);
+            setIsLoading(false);
+        }
+
+        setData();
     }, [getSubCategories, params.categoryId]);
+
+    if(isLoading) {
+        return(
+            <></>
+        )
+    }
 
     if (subCategories.length === 0) {
         return (
