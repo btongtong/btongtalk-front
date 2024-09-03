@@ -1,5 +1,6 @@
 // BASE URL
-export const DOMAIN = 'http://localhost:8080';
+export const DOMAIN = 'http://localhost:8080/api';
+// export const DOMAIN = '/api';
 
 const API_URLS = {
     KAKAOLOGIN: () => `${DOMAIN}/oauth2/authorization/kakao`,

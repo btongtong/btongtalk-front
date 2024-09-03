@@ -4,7 +4,7 @@ import useFillColor from "../../hooks/useFillColor";
 const Category = (props) => {
 
     const { fillColor, handleMouseOver, handleMouseLeave } = useFillColor('var(--gray-60)', 'var(--primary-color)');
-    const { category, onClickHandler } = props;
+    const { category, countTitle, onClickHandler } = props;
     const { name, description, count } = category;
 
     return (
@@ -18,7 +18,7 @@ const Category = (props) => {
                 <p className='description'>{description}</p>
             </div>
             <div className='question-cnt-box'>
-                <p className='description'><span className='question-cnt description'>{count}</span> Questions</p>
+                <p className='description'><span className='question-cnt description'>{count}</span> {countTitle}</p>
                 <FaPlay fill={fillColor} size={14}/>
             </div>
         </div>
