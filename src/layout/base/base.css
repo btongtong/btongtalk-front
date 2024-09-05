@@ -1,0 +1,11 @@
+.header-layout-container {
+    background-color: var(--gray-5);
+}
+
+.footer-layout-container {
+    background-color: var(--gray-5);
+}
+
+.footer-layout-spacing {
+    height: calc(var(--layout-1)*2);
+}

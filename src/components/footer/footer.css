@@ -1,0 +1,11 @@
+.footer-box {
+    width: 100%;
+    height: calc(var(--layout-1) * 2);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-3) var(--spacing-4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

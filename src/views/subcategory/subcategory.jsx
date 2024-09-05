@@ -1,5 +1,5 @@
 import './subcategory.css'
-import HeaderL from "../../layout/header/header";
+import HeaderL from "../../layout/base/base";
 import Heading from "../../components/heading/heading";
 import Category from "../../components/category/category";
 import {useNavigate, useParams} from "react-router-dom";

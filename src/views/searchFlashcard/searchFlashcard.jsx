@@ -1,5 +1,5 @@
 import './searchFlashcard.css';
-import HeaderL from "../../layout/header/header";
+import HeaderL from "../../layout/base/base";
 import Table from "../../components/table/table";
 import URLS from "../../constant/url";
 import Heading from "../../components/heading/heading";

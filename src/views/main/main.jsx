@@ -1,6 +1,6 @@
 import './main.css';
 import {useEffect} from "react";
-import HeaderL from "../../layout/header/header";
+import HeaderL from "../../layout/base/base";
 import Heading from "../../components/heading/heading";
 import Category from "../../components/category/category";
 import useMemberStore from "../../stores/useMemberStore";

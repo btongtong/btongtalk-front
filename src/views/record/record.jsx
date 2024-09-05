@@ -1,4 +1,4 @@
-import HeaderL from "../../layout/header/header";
+import HeaderL from "../../layout/base/base";
 import Profile from "../../components/profile/profile";
 import NavbarL from "../../layout/navbar/navbar";
 import Table from "../../components/table/table";
