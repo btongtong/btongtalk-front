@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './flashcard.css';
 import { AiOutlineSound } from "react-icons/ai";
 import useFillColor from "../../hooks/useFillColor";

@@ -5,7 +5,7 @@ import FlashcardC from "../../components/flashcard/flashcard";
 import FlashcardBtn from "../../components/flashcardBtn/flascardBtn";
 import VoiceRecord from "../../components/voiceRecord/voiceRecord";
 import useFlashcardStore from "../../stores/useFlashcardStore";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import FLASHCARD_STATUS from "../../constant/flashcardStatus";
 import useStatisticStore from "../../stores/useStatisticStore";
@@ -31,7 +31,7 @@ const Flashcard = (props) => {
         }
 
         setData();
-    }, [status, getFlashcards, getFlashcard, categoryId, flashcardId]);
+    }, [status, getFlashcards, getFlashcard, categoryId, flashcardId, clearFlashcards]);
 
     useEffect(() => {
         const setData = async () => {

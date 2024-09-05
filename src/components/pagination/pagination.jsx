@@ -13,7 +13,7 @@ const Pagination = (props) => {
         if(totalPages !== 0 && page >= totalPages) {
             setPage(totalPages-1);
         }
-    }, [totalPages]);
+    }, [totalPages, page, setPage]);
 
     return (
         <div className="pagination-box">

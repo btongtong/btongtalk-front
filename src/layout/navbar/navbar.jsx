@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Navbar from "../../components/navbar/navbar";
 import LogoutWithdraw from "../../components/logoutWithdraw/logoutWithdraw";
 
