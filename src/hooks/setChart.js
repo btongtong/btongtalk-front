@@ -1,7 +1,7 @@
 import CHART_CONFIG from "../constant/chartConfig";
 import CHART_STATUS from "../constant/chartStatus";
 
-const useSetChart = (props) => {
+const setChart = (props) => {
     const { labels, counts, total, status } = props;
 
     const chartData = {
@@ -43,5 +43,5 @@ const useSetChart = (props) => {
     }
 };
 
-export default useSetChart;
+export default setChart;
 

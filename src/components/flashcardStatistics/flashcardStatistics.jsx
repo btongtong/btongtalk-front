@@ -1,7 +1,7 @@
 import './flashcardStatistics.css'
 import {Doughnut} from "react-chartjs-2";
 import useStatisticStore from "../../stores/useStatisticStore";
-import useSetChart from "../../hooks/useSetChart";
+import setChart from "../../hooks/setChart";
 import CHART_STATUS from "../../constant/chartStatus";
 
 const FlashcardStatistics = (props) => {
@@ -11,7 +11,7 @@ const FlashcardStatistics = (props) => {
     const counts = statistics.map(item => item.count);
     const total = statistics.reduce((sum, item) => sum + item.count, 0);
 
-    const { chartData, options } = useSetChart({labels, counts, total, status:CHART_STATUS.FLASHCARD});
+    const { chartData, options } = setChart({labels, counts, total, status:CHART_STATUS.FLASHCARD});
 
     return (
         <div className='flashcard-chart-box'>
