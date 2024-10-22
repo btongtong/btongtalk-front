@@ -4,15 +4,13 @@ import API_URLS from "../apis/url";
 import api from "../apis/api";
 
 const useAuthStore = create((set, get) => ({
-    accessToken: localStorage.getItem('accessToken') || null,
+    accessToken: null,
 
     setAccessToken: (token) => {
-        localStorage.setItem('accessToken', token);
         set({ accessToken: token });
     },
 
     clearToken: () => {
-        localStorage.removeItem('accessToken');
         set({ accessToken: null });
     },
 
@@ -20,7 +18,7 @@ const useAuthStore = create((set, get) => ({
         try {
             const response = await axios.post(API_URLS.REISSUE(), {}, { withCredentials: true });
             const newToken = response.data;
-            get().setAccessToken(newToken);
+            get().setAccessToken(response.data);
             return newToken;
         } catch (error) {
             get().clearToken();
@@ -57,4 +55,3 @@ const useAuthStore = create((set, get) => ({
 }));
 
 export default useAuthStore;
-

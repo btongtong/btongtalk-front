@@ -10,11 +10,11 @@ api.interceptors.request.use(
         let { accessToken } = useAuthStore.getState();
 
         if(!accessToken) {
-            const { reissueUrl, reissueAccessToken } = useAuthStore.getState();
-            accessToken = await reissueAccessToken(reissueUrl);
+            accessToken = await useAuthStore.getState().reissueAccessToken();
         }
 
         config.headers.Authorization = accessToken;
+
         return config;
     },
     (error) => {
@@ -30,10 +30,10 @@ api.interceptors.response.use(
         const originalRequest = error.config;
 
         if(error.response.status === 401) {
-            const { reissueUrl, reissueAccessToken } = useAuthStore.getState();
-            const newAccessToken = await reissueAccessToken(reissueUrl);
+            const { reissueAccessToken } = useAuthStore.getState();
 
-            originalRequest.headers.Authorization = newAccessToken;
+            originalRequest.headers.Authorization = await reissueAccessToken();
+
             return api(originalRequest);
         }
 
