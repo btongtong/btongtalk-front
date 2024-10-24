@@ -7,7 +7,7 @@
 
 ## URL
 > **배포 URL: https://btongtalk.store** <br>
-> **프로젝트 구현 기록 URL: **https://noon-chance-53f.notion.site/BTONGTALK-123cf60ac914819b83d3fba3be117ae3?pvs=4**
+> **프로젝트 구현 기록 URL: https://noon-chance-53f.notion.site/BTONGTALK-123cf60ac914819b83d3fba3be117ae3?pvs=4**
 
 ## 프로젝트 소개
 
