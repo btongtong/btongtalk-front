@@ -12,6 +12,7 @@ const useAuthStore = create((set, get) => ({
 
     clearToken: () => {
         set({ accessToken: null });
+        localStorage.removeItem('isLogin');
     },
 
     reissueAccessToken: async () => {
@@ -28,7 +29,6 @@ const useAuthStore = create((set, get) => ({
     },
 
     onOauthLogin: async (oauthUrl) => {
-        get().clearToken();
         window.location.href = oauthUrl;
     },
 

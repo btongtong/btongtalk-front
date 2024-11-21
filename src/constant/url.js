@@ -1,6 +1,7 @@
 const URLS = {
     MAIN: () => '/',
     LOGIN: () => '/login',
+    OAUTH: () => '/oauth',
     CATEGORY: (categoryId) => `/categories/${categoryId}`,
     FLASHCARDS: (categoryId) => `/categories/${categoryId}/flashcards`,
     FLASHCARD: (flashcardId) => `/flashcards/${flashcardId}`,

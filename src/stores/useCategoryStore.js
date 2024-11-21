@@ -1,6 +1,6 @@
 import {create} from "zustand";
-import api from "../apis/api";
 import API_URLS from "../apis/url";
+import axios from "axios";
 
 
 const useCategoryStore = create((set, get) => ({
@@ -17,7 +17,7 @@ const useCategoryStore = create((set, get) => ({
             const { isLoading } = get();
 
             if(!isLoading) {
-                const response = await api.get(API_URLS.GET_CATEGORIES());
+                const response = await axios.get(API_URLS.GET_CATEGORIES());
                 set({ isLoading: true });
                 set({ categories: response.data });
             }

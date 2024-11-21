@@ -10,6 +10,7 @@ import Record from "./views/record/record";
 import STATUS from "./constant/recordStatus";
 import FLASHCARD_STATUS from "./constant/flashcardStatus";
 import SearchFlashcard from "./views/searchFlashcard/searchFlashcard";
+import Oauth from "./views/oauth/oauth";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Routes>
                     <Route path={URLS.MAIN()} element={<Main />} />
                     <Route path={URLS.LOGIN()} element={<Login />} />
+                    <Route path={URLS.OAUTH()} element={<Oauth />} />
                     <Route path={URLS.CATEGORY(':categoryId')} element={<Subcategory />} />
                     <Route path={URLS.FLASHCARDS(':categoryId')} element={<Flashcard status={FLASHCARD_STATUS.FLASHCARDS}/>} />
                     <Route path={URLS.FLASHCARD(':flashcardId')} element={<Flashcard status={FLASHCARD_STATUS.FLASHCARD}/>} />

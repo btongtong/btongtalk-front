@@ -8,19 +8,13 @@ const useMemberStore = create((set, get) => ({
         name: null,
         email: null,
     },
-    isLoading: false,
 
     getProfile: async () => {
         try {
-            const { isLoading } = get();
-
-            if(!isLoading) {
-                const response = await api.get(API_URLS.GET_MEMBER());
-                set({ isLoading: true });
-                set({
-                    profile: response.data
-                });
-            }
+            const response = await api.get(API_URLS.GET_MEMBER());
+            set({
+                profile: response.data
+            });
         } catch (error) {
             console.error('데이터를 가져오는데 실패하였습니다. 나중에 다시 시도해주세요.');
         }

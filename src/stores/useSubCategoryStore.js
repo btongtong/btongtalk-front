@@ -1,6 +1,6 @@
 import {create} from "zustand";
-import api from "../apis/api";
 import API_URLS from "../apis/url";
+import axios from "axios";
 
 
 const useSubCategoryStore = create((set, get) => ({
@@ -17,7 +17,7 @@ const useSubCategoryStore = create((set, get) => ({
             const { isLoding } = get();
 
             if(!isLoding) {
-                const response = await api.get(API_URLS.GET_SUB_CATEGORIES(categoryId));
+                const response = await axios.get(API_URLS.GET_SUB_CATEGORIES(categoryId));
                 const { subCategories, rootName, rootDescription } = response.data;
 
                 set({ isLoading: true });
