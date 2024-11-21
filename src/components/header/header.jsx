@@ -18,7 +18,7 @@ const Header = (props) => {
         if (isLogin) {
             getProfile();
         }
-    }, [isLogin]);
+    }, [isLogin, getProfile]);
 
     const handleSearchSubmit = (event) => {
         event.preventDefault();

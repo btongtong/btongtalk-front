@@ -7,7 +7,7 @@ const Oauth = () => {
     useEffect(() => {
         localStorage.setItem('isLogin', 'true');
         navigate('/');
-    }, []);
+    }, [navigate]);
 
     return (
         <></>
