@@ -1,15 +1,18 @@
 import './login.css'
 import LoginC from "../../components/login/login";
+import {NavLink} from "react-router-dom";
 
 const Login = (props) => {
     return (
         <div className='login-container'>
             <div className='spacing'></div>
             <header className='header-box'>
-                <div className='logo-box'>
-                    <div className='logo'></div>
-                    <h2 className='logo-heading'>BTONGTALK</h2>
-                </div>
+                <NavLink to='/' className='link'>
+                    <div className='logo-box'>
+                        <div className='logo'></div>
+                        <h2 className='logo-heading'>BTONGTALK</h2>
+                    </div>
+                </NavLink>
             </header>
             <div className='login-content'>
                 <section className='greeting'>
