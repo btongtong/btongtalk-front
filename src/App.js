@@ -21,8 +21,8 @@ function App() {
                     <Route path={URLS.LOGIN()} element={<Login />} />
                     <Route path={URLS.OAUTH()} element={<Oauth />} />
                     <Route path={URLS.CATEGORY(':categoryId')} element={<Subcategory />} />
-                    <Route path={URLS.FLASHCARDS(':categoryId')} element={<Flashcard status={FLASHCARD_STATUS.FLASHCARDS}/>} />
-                    <Route path={URLS.FLASHCARD(':flashcardId')} element={<Flashcard status={FLASHCARD_STATUS.FLASHCARD}/>} />
+                    <Route path={URLS.FLASHCARDS(':categoryId')} element={<Flashcard/>} />
+                    <Route path={URLS.FLASHCARD(':flashcardId')} element={<Flashcard/>} />
                     <Route path={URLS.SEARCH_FLASHCARD()} element={<SearchFlashcard />} />
                     <Route path={URLS.MEMBER()} element={<Member />}/>
                     <Route path={URLS.MEMBER_CORRECT()} element={<Record status={STATUS.KNOWN} />} />
