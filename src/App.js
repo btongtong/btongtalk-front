@@ -8,7 +8,6 @@ import URLS from './constant/url';
 import Flashcard from "./views/flashcard/flashcard";
 import Record from "./views/record/record";
 import STATUS from "./constant/recordStatus";
-import FLASHCARD_STATUS from "./constant/flashcardStatus";
 import SearchFlashcard from "./views/searchFlashcard/searchFlashcard";
 import Oauth from "./views/oauth/oauth";
 
